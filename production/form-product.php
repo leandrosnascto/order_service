@@ -47,7 +47,7 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="code">Código
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="number" id="code" name="code" required="required" class="form-control" value="<?=$row['CODE'] ?>">
+												<input type="number" id="code" name="code" required="required" class="form-control" value="<?=$row['CODE'] ?>" <?= $isEdit ? 'readonly' : ''?>>
 											</div>
 										</div>
 										<div class="item form-group">
