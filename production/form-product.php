@@ -8,6 +8,8 @@
 	$row['TIME_WARRANTY'] = '';
 	$row['KEY_PRODUCT']   = 0;
 
+	$isEdit = isset($_GET['keyProduct']);
+
 	if(isset($_GET['keyProduct'])) {
 		$getProduct = new ListDataClass();
 		$resultProduct = $getProduct->getProduct(preg_replace( '/[^0-9]/', '', $_GET['keyProduct'] ));
@@ -72,7 +74,7 @@
 										<div class="item form-group">
 											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tempo de garantia</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="time-warranty" class="form-control" name="time_warranty" data-inputmask="'mask': '99/99/9999'" value="<?= !empty($row['TIME_WARRANTY']) ? date('d-m-Y', strtotime($row['TIME_WARRANTY'])) : null ?>">
+												<input type="text" id="time-warranty" class="form-control" name="time_warranty" data-inputmask="'mask': '99/99/9999'" value="<?= !empty($row['TIME_WARRANTY']) ? date('d-m-Y', strtotime($row['TIME_WARRANTY'])) : null ?>"  <?= $isEdit ? 'readonly' : ''?> >
 											</div>
 										</div>
 										

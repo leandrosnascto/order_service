@@ -16,8 +16,12 @@
         }
     
         public function updateProduct( $code, $description, $status, $warranty, $key_product ) {
+
+            $data = str_replace("/", "-", $warranty);
+            $convertData = date('Y-m-d', strtotime($data));
+
             $sql = "UPDATE PRODUCT SET CODE = '".$code."', DESCRIPTION = '".$description."', STATUS = '".$status."',
-            TIME_WARRANTY = '".$warranty."'
+            TIME_WARRANTY = '".$convertData."'
             WHERE KEY_PRODUCT = ". $key_product;
             return $this->conn->query($sql);
         }
